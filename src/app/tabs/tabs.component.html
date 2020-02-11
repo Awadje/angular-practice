@@ -3,14 +3,6 @@
     <li role="presentation" *ngFor="let side of sides;" [ngClass]="{active: chosenList === side}">
       <a class="nav-link active" (click)="onChoose(side)" style="cursor:pointer">{{ side }}</a>
     </li>
-    <!-- <li class="nav-item">
-      <a class="nav-link active" (click)="onChoose('dark')"style="cursor:pointer">Dark</a>
-      <app-list [characters]="getCharacters()"></app-list>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link active" (click)="onChoose('light')"style="cursor:pointer">Light</a>
-      <app-list [characters]="getCharacters()"></app-list>
-    </li> -->
   </ul>
   <app-list [characters]="getCharacters()"></app-list>
 </div>
