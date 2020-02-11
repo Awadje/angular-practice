@@ -1,24 +1,28 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { StarWarsService } from '../star-wars.service';
 
 @Component({
   selector: 'app-item',
   templateUrl: './item.component.html',
-  styleUrls: ['./item.component.css']
+  styleUrls: ['./item.component.css'],
 })
 export class ItemComponent implements OnInit {
-  @Input() character
-  @Output() chosenSide = new EventEmitter<{name: string, side: string}>();
+    @Input() character;
+    @Output() chosenSide = new EventEmitter<{name: string, side: string}>();
+    swService: StarWarsService;
 
-  constructor() { }
+    constructor(swService: StarWarsService) {
+      this.swService = swService;
+    }
 
-  ngOnInit(): void {
-  }
+    ngOnInit(): void {
+    }
 
-  consoleLogTest() {
-    return true;
-  }
+    consoleLogTest() {
+      return true;
+    }
 
-  side(side: string) {
-    this.chosenSide.emit({name: this.character.name, side});
+    side(side: string) {
+      this.swService.onSideChosen({name: this.character.name, side});
   }
 }
