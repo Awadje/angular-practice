@@ -1,1 +1,11 @@
-<p>list works!</p>
+
+  <div class="list-group">
+      <app-item
+      *ngFor="let character of characters; let i = index"
+      [character]="character"
+      (chosenSide)="onChosenSide($event)"
+      ></app-item>
+  </div>
+
+
+

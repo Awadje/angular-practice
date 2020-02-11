@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-item',
@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./item.component.css']
 })
 export class ItemComponent implements OnInit {
-  character;
+  @Input() character
+  @Output() chosenSide = new EventEmitter<{name: string, side: string}>();
 
   constructor() { }
 
@@ -15,5 +16,9 @@ export class ItemComponent implements OnInit {
 
   consoleLogTest() {
     return true;
+  }
+
+  side(side: string) {
+    this.chosenSide.emit({name: this.character.name, side});
   }
 }
