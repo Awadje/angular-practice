@@ -7,6 +7,7 @@ import { TabsComponent } from './tabs/tabs.component';
 import { ListComponent } from './list/list.component';
 import { ItemComponent } from './item/item.component';
 import { StarWarsService } from './star-wars.service';
+import { CreateCharacterComponent } from './create-character/create-character.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { StarWarsService } from './star-wars.service';
     TabsComponent,
     ListComponent,
     ItemComponent,
+    CreateCharacterComponent,
   ],
   imports: [
     BrowserModule,
