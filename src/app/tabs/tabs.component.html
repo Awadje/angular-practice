@@ -1,8 +1,14 @@
 <div>
   <ul class="nav nav-tabs">
-    <li role="presentation" *ngFor="let side of sides;" [ngClass]="{active: chosenList === side}">
-      <a class="nav-link active" (click)="onChoose(side)" style="cursor:pointer">{{ side }}</a>
+    <li role="presentation" routerLinkActive="active">
+      <a class="nav-link" routerLink="/characters/all">All</a>
+    </li>
+    <li role="presentation" routerLinkActive="active">
+      <a class="nav-link" routerLink="/characters/light">Light</a>
+    </li>
+    <li role="presentation" routerLinkActive="active">
+      <a class="nav-link" routerLink="/characters/dark">Dark</a>
     </li>
   </ul>
-  <app-list [characters]="getCharacters()"></app-list>
+  <router-outlet></router-outlet>
 </div>
