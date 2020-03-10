@@ -1,3 +1,5 @@
+import { Subject } from 'rxjs';
+
 export class StarWarsService {
   private characters = [
     {
@@ -9,6 +11,8 @@ export class StarWarsService {
       side: 'dark'
     }
   ];
+
+  charactersChanged = new Subject<void>()
 
   getCharacters(chosenList) {
     if (chosenList === 'all') {
@@ -24,6 +28,7 @@ export class StarWarsService {
       return char.name === charInfo.name;
     })
     this.characters[pos].side = charInfo.side;
+    this.charactersChanged.next()
   }
 
   addCharacter(name, side) {
